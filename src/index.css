@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Corporate Legal Design System */
+
+@layer base {
+  :root {
+    /* Corporate Professional Theme */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 27%; /* Professional dark slate */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    
+    /* Corporate blue for primary elements */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    
+    /* Professional slate for secondary elements */
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 215 25% 27%;
+    
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Corporate accent color */
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+    
+    --radius: 0.5rem;
+    
+    /* Corporate sidebar colors */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 40% 98%;
+    --sidebar-accent-foreground: 215 25% 27%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 210 50% 25%;
+    
+    /* Desktop-specific spacing variables */
+    --desktop-sidebar-width: 240px;
+    --desktop-header-height: 64px;
+    --desktop-content-padding: 32px;
+    --desktop-card-gap: 24px;
+    
+    /* Blue-glass theme variables - 25% lighter, 50% opacity */
+    --accent-blue: #C3D8F2; /* 25% lighter */
+    --accent-blue-hover: #A9C6EA;
+    --accent-blue-light: #EAF3FB;
+    --accent-blue-subtle: #F5F8FC;
+    --text-primary: #101622;
+    --text-secondary: #22304a;
+    --text-light: #FFFFFF;
+    --text-muted: #3a4a66;
+    --glass-white: rgba(230, 237, 245, 0.55); /* lighter, more gray */
+    --glass-white-strong: rgba(230, 237, 245, 0.75);
+    --glass-dark: rgba(26, 29, 41, 0.10);
+    --glass-blue: rgba(195, 216, 242, 0.5); /* lighter blue, 50% opacity */
+    --glass-blue-strong: rgba(195, 216, 242, 0.7);
+    --backdrop-blur: blur(28px);
+    --shadow-subtle: 0 2px 16px rgba(26, 29, 41, 0.10);
+    --shadow-medium: 0 12px 36px rgba(26, 29, 41, 0.16);
+    --shadow-strong: 0 28px 56px rgba(26, 29, 41, 0.22);
+    --glow-blue: 0 0 32px rgba(195, 216, 242, 0.25);
+    --glow-blue-strong: 0 0 48px rgba(195, 216, 242, 0.5);
+    --glow-subtle: 0 0 24px rgba(195, 216, 242, 0.12);
+    
+    /* Three-color glassmorphic theme using RAL 1013, RAL 5008, RAL 7004 (tinted 75%) */
+    --ral-1013: rgba(234, 230, 202, 0.75); /* Oyster white */
+    --ral-5008: rgba(54, 69, 79, 0.75);   /* Grey blue */
+    --ral-7004: rgba(156, 156, 156, 0.75); /* Signal grey */
+    --ral-5009: rgba(47, 91, 120, 0.75);   /* Azure blue (for highlight) */
+    --glass-gradient: linear-gradient(135deg, var(--ral-1013), var(--ral-7004) 60%, var(--ral-5008));
+    --glassmorph-bg: linear-gradient(120deg, rgba(210,220,240,0.96) 0%, rgba(136,156,186,0.88) 60%, rgba(44,69,109,0.85) 100%);
+    --glassmorph-blur: blur(32px);
+    --glassmorph-opacity: 0.88; /* more solid glass for text clarity */
+    --glassmorph-border: 1.5px solid rgba(44, 69, 109, 0.22);
+    --glassmorph-hover: var(--ral-5009);
+  }
+
+  .dark {
+    /* Upscaled Dark Mode - Vibrant Legal Theme (now lighter blue-glass) */
+    --background: 220 100% 97%; /* very light blue */
+    --foreground: #eaf2ff;
+    --card: 220 100% 99% / 0.85; /* glassmorphism base, lighter */
+    --card-foreground: #eaf2ff;
+    --popover: 220 100% 99% / 0.85;
+    --popover-foreground: #eaf2ff;
+    --primary: 210 80% 80%; /* much lighter blue */
+    --primary-foreground: 210 40% 18%;
+    --secondary: 210 60% 92%;
+    --secondary-foreground: 210 40% 18%;
+    --muted: 220 60% 98% / 0.7;
+    --muted-foreground: 215 20% 40%;
+    --accent: 210 80% 80%;
+    --accent-foreground: 210 40% 18%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 60% 92% / 0.5;
+    --input: 210 60% 92% / 0.5;
+    --ring: 210 80% 80%;
+    --sidebar-background: 220 100% 99% / 0.85;
+    --sidebar-foreground: 210 40% 18%;
+    --sidebar-primary: 210 80% 80%;
+    --sidebar-primary-foreground: 210 40% 18%;
+    --sidebar-accent: 210 60% 92% / 0.5;
+    --sidebar-accent-foreground: 210 40% 18%;
+    --sidebar-border: 210 60% 92% / 0.5;
+    --sidebar-ring: 210 80% 80%;
+    
+    --glass-white: rgba(230, 237, 245, 0.55);
+    --glass-white-strong: rgba(230, 237, 245, 0.75);
+    --glass-dark: rgba(26, 29, 41, 0.10);
+    --glass-blue: rgba(195, 216, 242, 0.5);
+    --glass-blue-strong: rgba(195, 216, 242, 0.7);
+    
+    --glassmorph-opacity: 0.94;
+    --glassmorph-bg: linear-gradient(120deg, rgba(210,220,240,0.22) 0%, rgba(136,156,186,0.22) 60%, rgba(44,69,109,0.28) 100%);
+    --glassmorph-border: 1.5px solid rgba(210,220,240,0.18);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.5;
+    font-size: 15px; /* Desktop-optimized base font size */
+  }
+  
+  /* Desktop-optimized typography scale */
+  h1 {
+    @apply text-4xl font-semibold leading-tight;
+    line-height: 1.3;
+  }
+  
+  h2 {
+    @apply text-3xl font-semibold leading-tight;
+    line-height: 1.3;
+  }
+  
+  h3 {
+    @apply text-xl font-semibold leading-tight;
+    line-height: 1.3;
+  }
+  
+  h4 {
+    @apply text-lg font-semibold leading-tight;
+    line-height: 1.3;
+  }
+  
+  /* Table text optimization for desktop density */
+  .table-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  /* Caption and secondary text */
+  .text-caption {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  /* Smooth transitions for theme changes and interactions */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  /* Desktop-specific hover effects */
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Professional focus styles for keyboard navigation */
+  .focus-ring:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  
+  /* Custom scrollbar for desktop */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+  
+  /* Enhanced Scrollbar Styles for Sidebar - Minimalist Design */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.2) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.2);
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+/* Enhanced hover states for better UX */
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.4);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.6);
+  width: 6px; /* Slightly expand on hover */
+}
+
+.scrollbar-thin:focus::-webkit-scrollbar-thumb {
+  background-color: rgba(79, 70, 229, 0.5);
+}
+
+/* Tailwind-compatible scrollbar utilities */
+.scrollbar-track-transparent { scrollbar-color: transparent transparent; }
+.scrollbar-thumb-slate-200 { scrollbar-color: rgb(226 232 240 / 0.5) transparent; }
+.scrollbar-thumb-slate-300 { scrollbar-color: rgb(203 213 225 / 0.7) transparent; }
+
+/* Ultra-smooth scrolling behavior */
+.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: y proximity;
+}
+
+/* Enhanced scroll area styling with better performance */
+.sidebar-scroll-area {
+  overscroll-behavior: contain;
+  scroll-padding-top: 0.5rem;
+  scroll-padding-bottom: 0.5rem;
+  contain: layout style paint;
+  will-change: scroll-position;
+}
+
+/* Responsive scrollbar for different screen sizes */
+@media (max-width: 1024px) {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.3);
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    width: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 2px;
+  }
+}
+
+/* Enhanced scroll hint animation - more subtle */
+@keyframes scroll-hint {
+  0%, 100% { 
+    transform: translateY(0); 
+    opacity: 0.5; 
+  }
+  50% { 
+    transform: translateY(2px); 
+    opacity: 0.8; 
+  }
+}
+
+.scroll-hint {
+  animation: scroll-hint 2.5s ease-in-out infinite;
+  backdrop-filter: blur(8px);
+}
+
+/* Focus styles for accessibility - minimalist */
+.sidebar-scroll-area:focus {
+  outline: 1px solid rgba(79, 70, 229, 0.3);
+  outline-offset: -1px;
+  border-radius: 6px;
+}
+
+/* Enhanced scroll fade effects with better gradients */
+.scroll-fade-top {
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 255, 255, 0.95) 30%,
+    rgba(255, 255, 255, 0.7) 70%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.scroll-fade-bottom {
+  background: linear-gradient(to top, 
+    rgba(255, 255, 255, 1) 0%, 
+    rgba(255, 255, 255, 0.95) 30%,
+    rgba(255, 255, 255, 0.7) 70%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Dark mode scroll fade effects */
+.dark .scroll-fade-top {
+  background: linear-gradient(to bottom, 
+    rgba(15, 23, 42, 1) 0%, 
+    rgba(15, 23, 42, 0.95) 30%,
+    rgba(15, 23, 42, 0.7) 70%,
+    transparent 100%);
+}
+
+.dark .scroll-fade-bottom {
+  background: linear-gradient(to top, 
+    rgba(15, 23, 42, 1) 0%, 
+    rgba(15, 23, 42, 0.95) 30%,
+    rgba(15, 23, 42, 0.7) 70%,
+    transparent 100%);
+}
+
+/* Momentum scrolling enhancement */
+.sidebar-scroll-area {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y proximity;
+}
+
+/* Scroll snap for navigation items */
+.sidebar-scroll-area li {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+  
+  /* Desktop-optimized card shadows */
+  .card-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  
+  .card-shadow-hover:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Professional table styles */
+  .data-table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  .data-table th {
+    height: 48px;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    border-bottom: 1px solid hsl(var(--border));
+    background: hsl(var(--muted) / 0.5);
+  }
+  
+  .data-table td {
+    height: 48px;
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  
+  .data-table tr:hover {
+    background: hsl(var(--muted) / 0.5);
+  }
+}
+
+/* Unified glassmorphism utility */
+.glass {
+  background: var(--glassmorph-bg);
+  backdrop-filter: var(--glassmorph-blur);
+  border-radius: 1.5rem;
+  border: var(--glassmorph-border);
+  opacity: var(--glassmorph-opacity);
+  box-shadow: 0 8px 32px 0 rgba(47, 91, 120, 0.18);
+  transition: background 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.glass:hover {
+  background: var(--glass-white-strong);
+  box-shadow: var(--shadow-strong), var(--glow-blue-strong);
+  border-color: var(--accent-blue-light);
+}
+
+/* Glass container for cards, overlays, etc. */
+.glass-container {
+  background: var(--glass-white);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1.5px solid var(--glass-blue);
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium), var(--glow-blue);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-container:hover {
+  background: var(--glass-white-strong);
+  box-shadow: var(--shadow-strong), var(--glow-blue-strong);
+  border-color: var(--accent-blue-light);
+}
+
+/* Animated glass shine utility (for StatCard, etc.) */
+.animate-glass-shine {
+  background: linear-gradient(120deg, transparent 60%, rgba(255,255,255,0.15) 80%, transparent 100%);
+  animation: glass-shine 2.5s infinite linear;
+}
+@keyframes glass-shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Icon bounce animations for stat trends */
+.animate-bounce-up {
+  animation: bounce-up 1.2s infinite alternate;
+}
+@keyframes bounce-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+.animate-bounce-down {
+  animation: bounce-down 1.2s infinite alternate;
+}
+@keyframes bounce-down {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(6px); }
+}
+
+/* Desktop-specific utility classes */
+@layer utilities {
+  .desktop-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--desktop-content-padding);
+  }
+  
+  .desktop-grid {
+    display: grid;
+    gap: var(--desktop-card-gap);
+  }
+  
+  .desktop-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .desktop-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  @media (min-width: 1920px) {
+    .desktop-grid-4-wide {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .sidebar-width {
+    width: var(--desktop-sidebar-width);
+  }
+  
+  .header-height {
+    height: var(--desktop-header-height);
+  }
+  
+  .content-padding {
+    padding: var(--desktop-content-padding);
+  }
+  
+  .card-gap {
+    gap: var(--desktop-card-gap);
+  }
+  
+  /* Pill-shaped glass hover effect for interactive tabs */
+  .glass-pill-hover {
+    background: var(--ral-5009);
+    opacity: 0.7;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 4px rgba(47, 91, 120, 0.12);
+    transition: background 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  
+  .tab-highlight, .clickable-highlight:hover, .clickable-highlight:focus {
+    background: var(--highlight-blue) !important;
+    opacity: 0.95;
+    border-radius: 9999px;
+    box-shadow: 0 0 0 4px rgba(24, 44, 88, 0.18);
+    color: #fff !important;
+    transition: background 0.2s cubic-bezier(0.4,0,0.2,1), box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), color 0.2s;
+  }
+}
